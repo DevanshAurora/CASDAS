@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CASDAS</title>
+</head>
+
+<body>
+    <h1>AJAX POST Requestn Sim</h1>
+
+    <button onclick="send402()">Send Request 402 (Payment Required)</button>
+
+    <br><br>
+
+    <button onclick="send420()">Send Request 420 (Enhance Your Calm)</button>
+
+    <br><br>
+
+    <button onclick="send509()">Send Request 509 (Bandwidth Limit Exceeded)</button>
+
+    <br><br>
+
+    <div id="output">OutPut Here</div>
+
+    <script>
+        var v1 = new XMLHttpRequest();
+
+        v1.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 402) {
+                document.getElementById("output").innerHTML = "402 Payment Required";
+            } else if (this.readyState == 4 && this.status == 420) {
+                document.getElementById("output").innerHTML = "420 Enhance Your Calm";
+            } else if (this.readyState == 4 && this.status == 509) {
+                document.getElementById("output").innerHTML = "509 Bandwidth Limit Exceeded";
+            }
+        };
+
+        function send402() {
+            v1.open("POST", "api.php", true);
+
+            v1.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded",
+            );
+
+            v1.send("402");
+        }
+
+        function send420() {
+            v1.open("POST", "api.php", true);
+
+            v1.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded",
+            );
+
+            v1.send("420");
+        }
+
+        function send509() {
+            v1.open("POST", "api.php", true);
+
+            v1.setRequestHeader(
+                "Content-type",
+                "application/x-www-form-urlencoded",
+            );
+
+            v1.send("509");
+        }
+    </script>
+</body>
+
+</html>
